@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HIGHSEC Student Conference 2025</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #0a1128;
@@ -66,42 +66,15 @@
       gap: 15px;
     }
 
-    .logo-icon {
+    .logo-image {
       width: 60px;
       height: 60px;
-      background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
       border-radius: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      object-fit: cover;
       box-shadow: 0 4px 15px rgba(0, 243, 255, 0.3);
-      position: relative;
-      overflow: hidden;
     }
 
-    .logo-icon::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-
-    .logo-icon:hover::before {
-      opacity: 1;
-    }
-
-    .logo-icon i {
-      font-size: 1.8rem;
-      color: white;
-      z-index: 1;
-    }
-
-    .logo-text h1 {
+    .-text h1 {
       font-size: 1.8rem;
       font-weight: 800;
       background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
@@ -114,6 +87,17 @@
       font-size: 0.9rem;
       color: #e0e0e0;
       margin-top: 5px;
+    }
+
+    .msm-vengara {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.2rem;
+      color: var(--neon-blue);
+      font-weight: 600;
+      letter-spacing: 1px;
     }
 
     nav {
@@ -173,8 +157,18 @@
       z-index: 2;
     }
 
+    .lets {
+      font-family: 'Dancing Script', cursive;
+      font-size: 4rem;
+      color: var(--neon-blue);
+      margin-bottom: -20px;
+      display: block;
+      font-weight: 500;
+      animation: fadeInUp 1s ease;
+    }
+
     .hero h1 {
-      font-size: 5.5rem;
+      font-size: 6rem;
       font-weight: 900;
       margin-bottom: 10px;
       line-height: 1.1;
@@ -186,16 +180,8 @@
       letter-spacing: 2px;
     }
 
-    .hero h1 .apostrophe {
-      font-size: 6rem;
-      color: var(--neon-blue);
-      display: inline-block;
-      margin-right: 5px;
-      animation: pulse 2s infinite;
-    }
-
     .motto-container {
-      margin: 20px 0 30px;
+      margin: 20px 0 15px;
       animation: fadeInUp 1.5s ease;
     }
 
@@ -254,7 +240,7 @@
       opacity: 1;
     }
 
-    .hero p {
+    .event-details {
       font-size: 1.3rem;
       color: #e0e0e0;
       margin-bottom: 50px;
@@ -262,6 +248,19 @@
       margin-left: auto;
       margin-right: auto;
       animation: fadeInUp 1.7s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .event-details .date {
+      color: var(--neon-blue);
+      font-weight: 600;
+    }
+
+    .event-details .venue {
+      color: var(--highlight);
+      font-weight: 600;
     }
 
     /* Countdown Timer */
@@ -725,8 +724,12 @@
 
     /* Responsive Styles */
     @media (max-width: 1024px) {
+      .lets {
+        font-size: 3.5rem;
+      }
+      
       .hero h1 {
-        font-size: 4.5rem;
+        font-size: 5rem;
       }
       
       .motto {
@@ -746,6 +749,16 @@
         gap: 15px;
       }
       
+      .msm-vengara {
+        position: relative;
+        top: 0;
+        transform: none;
+        margin-top: 10px;
+        order: 3;
+        width: 100%;
+        text-align: center;
+      }
+      
       nav {
         gap: 15px;
       }
@@ -754,11 +767,11 @@
         padding: 120px 20px 80px;
       }
       
-      .hero h1 {
-        font-size: 3.5rem;
+      .lets {
+        font-size: 2.8rem;
       }
       
-      .hero h1 .apostrophe {
+      .hero h1 {
         font-size: 4rem;
       }
       
@@ -773,7 +786,7 @@
         width: 200px;
       }
       
-      .hero p {
+      .event-details {
         font-size: 1.1rem;
       }
       
@@ -808,11 +821,11 @@
     }
 
     @media (max-width: 480px) {
-      .hero h1 {
-        font-size: 2.8rem;
+      .lets {
+        font-size: 2.2rem;
       }
       
-      .hero h1 .apostrophe {
+      .hero h1 {
         font-size: 3.2rem;
       }
       
@@ -851,14 +864,16 @@
 
   <header>
     <div class="logo-container">
-      <div class="logo-icon">
-        <i class="fas fa-graduation-cap"></i>
-      </div>
+      <!-- Replace with your actual logo file -->
+      <img src="assets/images/logo.png" alt="HIGHSEC Logo" class="logo-image">
       <div class="logo-text">
         <h1>HIGHSEC</h1>
         <p>Student Conference 2025</p>
       </div>
     </div>
+    
+    <div class="msm-vengara">MSM VENGARA</div>
+    
     <nav>
       <a href="index.html" class="active">Home</a>
       <a href="about.html">About</a>
@@ -872,7 +887,8 @@
 
   <section class="hero">
     <div class="hero-content">
-      <h1><span class="apostrophe">'</span>HIGHSEC</h1>
+      <span class="lets">Let's</span>
+      <h1>HIGHSEC</h1>
       
       <div class="motto-container">
         <div class="motto">
@@ -882,7 +898,10 @@
         </div>
       </div>
       
-      <p>Guiding Students Towards the Right Path Through Islamic Principles</p>
+      <div class="event-details">
+        <div class="date">November 9, 2025</div>
+        <div class="venue">Freddo Vengara</div>
+      </div>
 
       <!-- Countdown -->
       <div class="countdown-container">
@@ -964,7 +983,7 @@
 
   <footer>
     <div class="footer-motto">Learning • Reflection • Dedication</div>
-    <p>© 2025 HIGHSEC Student Conference | Conducted By MSM VENGARA ZONE | Venue: Freddo Vengara</p>
+    <p>© 2025 HIGHSEC Student Conference | Conducted By MSM VENGARA ZONE</p>
   </footer>
 
   <!-- Particle.js Library -->

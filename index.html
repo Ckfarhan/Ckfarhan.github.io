@@ -74,7 +74,7 @@
       box-shadow: 0 4px 15px rgba(0, 243, 255, 0.3);
     }
 
-    .-text h1 {
+    .logo-text h1 {
       font-size: 1.8rem;
       font-weight: 800;
       background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
@@ -145,7 +145,7 @@
     /* Hero Section */
     .hero {
       text-align: center;
-      padding: 150px 20px 120px;
+      padding: 150px 20px 100px;
       position: relative;
       overflow: hidden;
     }
@@ -159,16 +159,16 @@
 
     .lets {
       font-family: 'Dancing Script', cursive;
-      font-size: 4rem;
+      font-size: 3.5rem;
       color: var(--neon-blue);
-      margin-bottom: -20px;
+      margin-bottom: -15px;
       display: block;
       font-weight: 500;
       animation: fadeInUp 1s ease;
     }
 
     .hero h1 {
-      font-size: 6rem;
+      font-size: 5.5rem;
       font-weight: 900;
       margin-bottom: 10px;
       line-height: 1.1;
@@ -181,16 +181,16 @@
     }
 
     .motto-container {
-      margin: 20px 0 15px;
+      margin: 20px 0 30px;
       animation: fadeInUp 1.5s ease;
     }
 
     .motto {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: 600;
       display: flex;
       justify-content: center;
-      gap: 30px;
+      gap: 20px;
       flex-wrap: wrap;
     }
 
@@ -223,43 +223,85 @@
       color: var(--neon-purple);
     }
 
-    .motto-word::before {
+    /* Event Details Section */
+    .event-details-section {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 25px;
+      padding: 40px;
+      margin: 50px auto;
+      max-width: 800px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      animation: fadeInUp 1.7s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .event-details-section::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
-      border-radius: 50px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      height: 5px;
+      background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
     }
 
-    .motto-word:hover::before {
-      opacity: 1;
+    .event-details-title {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      color: var(--neon-blue);
+      font-weight: 700;
+      text-align: center;
     }
 
-    .event-details {
-      font-size: 1.3rem;
-      color: #e0e0e0;
-      margin-bottom: 50px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-      animation: fadeInUp 1.7s ease;
+    .event-details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .event-detail {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      align-items: center;
+      text-align: center;
+      padding: 25px 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      transition: all 0.4s ease;
     }
 
-    .event-details .date {
+    .event-detail:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.12);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .event-detail-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+      color: white;
+    }
+
+    .event-detail h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
       color: var(--neon-blue);
-      font-weight: 600;
+      font-weight: 700;
     }
 
-    .event-details .venue {
-      color: var(--highlight);
+    .event-detail p {
+      font-size: 1.2rem;
+      color: #fff;
       font-weight: 600;
     }
 
@@ -382,83 +424,6 @@
 
     .btn-secondary:hover {
       background: rgba(255, 255, 255, 0.2);
-    }
-
-    /* Event Highlights */
-    .highlights {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin: 80px auto;
-      max-width: 1200px;
-      padding: 0 20px;
-    }
-
-    .highlight-card {
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 20px;
-      padding: 30px;
-      text-align: center;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: all 0.4s ease;
-      flex: 1;
-      max-width: 250px;
-      opacity: 0;
-      transform: translateY(50px);
-    }
-
-    .highlight-card.animate {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .highlight-card:hover {
-      transform: translateY(-10px);
-      background: rgba(255, 255, 255, 0.12);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    }
-
-    .highlight-icon {
-      width: 70px;
-      height: 70px;
-      background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 20px;
-      font-size: 1.8rem;
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .highlight-icon::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-
-    .highlight-card:hover .highlight-icon::before {
-      opacity: 1;
-    }
-
-    .highlight-card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 15px;
-      color: var(--neon-blue);
-    }
-
-    .highlight-card p {
-      font-size: 0.95rem;
-      color: #e0e0e0;
     }
 
     /* Motto Section */
@@ -725,20 +690,25 @@
     /* Responsive Styles */
     @media (max-width: 1024px) {
       .lets {
-        font-size: 3.5rem;
+        font-size: 3rem;
       }
       
       .hero h1 {
-        font-size: 5rem;
+        font-size: 4.5rem;
       }
       
       .motto {
-        font-size: 1.5rem;
-        gap: 20px;
+        font-size: 1.3rem;
+        gap: 15px;
       }
       
-      .highlights, .motto-cards {
+      .motto-cards {
         flex-wrap: wrap;
+      }
+      
+      .event-details-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
       }
     }
 
@@ -768,15 +738,15 @@
       }
       
       .lets {
-        font-size: 2.8rem;
+        font-size: 2.5rem;
       }
       
       .hero h1 {
-        font-size: 4rem;
+        font-size: 3.5rem;
       }
       
       .motto {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         flex-direction: column;
         gap: 15px;
         align-items: center;
@@ -786,7 +756,15 @@
         width: 200px;
       }
       
-      .event-details {
+      .event-details-section {
+        padding: 30px 20px;
+      }
+      
+      .event-detail h3 {
+        font-size: 1.3rem;
+      }
+      
+      .event-detail p {
         font-size: 1.1rem;
       }
       
@@ -822,11 +800,11 @@
 
     @media (max-width: 480px) {
       .lets {
-        font-size: 2.2rem;
+        font-size: 2rem;
       }
       
       .hero h1 {
-        font-size: 3.2rem;
+        font-size: 2.8rem;
       }
       
       .motto {
@@ -898,10 +876,26 @@
           <div class="motto-word">Dedication</div>
         </div>
       </div>
-      
-      <div class="event-details">
-        <div class="date">November 9, 2025</div>
-        <div class="venue">Freddo Vengara</div>
+
+      <!-- Event Details Section -->
+      <div class="event-details-section">
+        <h2 class="event-details-title">Event Details</h2>
+        <div class="event-details-grid">
+          <div class="event-detail">
+            <div class="event-detail-icon">
+              <i class="fas fa-calendar-day"></i>
+            </div>
+            <h3>Date</h3>
+            <p>November 9, 2025</p>
+          </div>
+          <div class="event-detail">
+            <div class="event-detail-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h3>Venue</h3>
+            <p>Freddo Vengara</p>
+          </div>
+        </div>
       </div>
 
       <!-- Countdown -->
@@ -949,38 +943,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Event Highlights -->
-  <div class="highlights">
-    <div class="highlight-card">
-      <div class="highlight-icon">
-        <i class="fas fa-microphone"></i>
-      </div>
-      <h3>Islamic Scholars</h3>
-      <p>Renowned scholars sharing Islamic wisdom and guidance</p>
-    </div>
-    <div class="highlight-card">
-      <div class="highlight-icon">
-        <i class="fas fa-users"></i>
-      </div>
-      <h3>Brotherhood</h3>
-      <p>Building strong bonds with fellow Muslim students</p>
-    </div>
-    <div class="highlight-card">
-      <div class="highlight-icon">
-        <i class="fas fa-lightbulb"></i>
-      </div>
-      <h3>Guidance</h3>
-      <p>Finding direction through Islamic principles</p>
-    </div>
-    <div class="highlight-card">
-      <div class="highlight-icon">
-        <i class="fas fa-mosque"></i>
-      </div>
-      <h3>Spirituality</h3>
-      <p>Strengthening faith and connection with Allah</p>
-    </div>
-  </div>
 
   <footer>
     <div class="footer-motto">Learning • Reflection • Dedication</div>
@@ -1070,19 +1032,14 @@
     }, observerOptions);
 
     // Observe elements for animation
-    document.querySelectorAll('.highlight-card, .motto-card').forEach(el => {
+    document.querySelectorAll('.motto-card').forEach(el => {
       observer.observe(el);
     });
 
     // Add initial animation delay to cards
-    document.querySelectorAll('.highlight-card').forEach((card, index) => {
-      card.style.transitionDelay = `${index * 0.1}s`;
-    });
-
     document.querySelectorAll('.motto-card').forEach((card, index) => {
       card.style.transitionDelay = `${index * 0.1}s`;
     });
   </script>
 </body>
 </html>
-

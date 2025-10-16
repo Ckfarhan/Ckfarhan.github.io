@@ -8,12 +8,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #001f54;
-      --secondary: #004aad;
-      --accent: #0078ff;
+      --primary: #0a1128;
+      --secondary: #1c2541;
+      --accent: #3a506b;
+      --highlight: #5bc0be;
       --gold: #ffd700;
       --light: #f0f6ff;
-      --dark: #0a1429;
+      --dark: #050a1a;
+      --neon-blue: #00f3ff;
+      --neon-purple: #9d4edd;
     }
     
     * {
@@ -34,7 +37,7 @@
 
     /* Particle Background */
     #particles-js {
-      position: absolute;
+      position: fixed;
       width: 100%;
       height: 100%;
       top: 0;
@@ -49,7 +52,7 @@
       align-items: center;
       padding: 1.5rem 3rem;
       backdrop-filter: blur(15px);
-      background: rgba(0, 10, 30, 0.7);
+      background: rgba(5, 10, 26, 0.8);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -66,23 +69,42 @@
     .logo-icon {
       width: 60px;
       height: 60px;
-      background: linear-gradient(135deg, var(--gold), #ffb300);
+      background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
       border-radius: 15px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+      box-shadow: 0 4px 15px rgba(0, 243, 255, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo-icon::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .logo-icon:hover::before {
+      opacity: 1;
     }
 
     .logo-icon i {
       font-size: 1.8rem;
-      color: var(--primary);
+      color: white;
+      z-index: 1;
     }
 
     .logo-text h1 {
       font-size: 1.8rem;
       font-weight: 800;
-      background: linear-gradient(90deg, #fff, var(--gold));
+      background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       line-height: 1.2;
@@ -111,13 +133,13 @@
     }
 
     nav a:hover {
-      color: var(--gold);
+      color: var(--neon-blue);
       background: rgba(255, 255, 255, 0.1);
     }
 
     nav a.active {
-      color: var(--gold);
-      background: rgba(255, 215, 0, 0.1);
+      color: var(--neon-blue);
+      background: rgba(0, 243, 255, 0.1);
     }
 
     nav a::after {
@@ -127,7 +149,7 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: var(--gold);
+      background: var(--neon-blue);
       transition: width 0.3s ease;
     }
 
@@ -152,33 +174,34 @@
     }
 
     .hero h1 {
-      font-size: 4.5rem;
+      font-size: 5.5rem;
       font-weight: 900;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       line-height: 1.1;
-      background: linear-gradient(90deg, #fff, var(--gold));
+      background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
       animation: fadeInUp 1.2s ease;
+      letter-spacing: 2px;
     }
 
     .hero h1 .apostrophe {
-      font-size: 5rem;
-      color: var(--gold);
+      font-size: 6rem;
+      color: var(--neon-blue);
       display: inline-block;
       margin-right: 5px;
       animation: pulse 2s infinite;
     }
 
     .motto-container {
-      margin: 30px 0 40px;
+      margin: 20px 0 30px;
       animation: fadeInUp 1.5s ease;
     }
 
     .motto {
-      font-size: 2.2rem;
-      font-weight: 700;
+      font-size: 1.8rem;
+      font-weight: 600;
       display: flex;
       justify-content: center;
       gap: 30px;
@@ -187,7 +210,7 @@
 
     .motto-word {
       position: relative;
-      padding: 10px 25px;
+      padding: 8px 20px;
       border-radius: 50px;
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
@@ -203,15 +226,15 @@
     }
 
     .motto-word:nth-child(1) {
-      color: #ff9e7d;
+      color: var(--neon-blue);
     }
 
     .motto-word:nth-child(2) {
-      color: #7dcfff;
+      color: var(--highlight);
     }
 
     .motto-word:nth-child(3) {
-      color: #adff7d;
+      color: var(--neon-purple);
     }
 
     .motto-word::before {
@@ -232,7 +255,7 @@
     }
 
     .hero p {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       color: #e0e0e0;
       margin-bottom: 50px;
       max-width: 700px;
@@ -249,7 +272,7 @@
 
     .countdown-title {
       font-size: 1.2rem;
-      color: var(--gold);
+      color: var(--neon-blue);
       margin-bottom: 25px;
       text-transform: uppercase;
       letter-spacing: 2px;
@@ -282,7 +305,7 @@
       left: 0;
       width: 100%;
       height: 4px;
-      background: linear-gradient(90deg, var(--gold), var(--accent));
+      background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
     }
 
     .time-box:hover {
@@ -293,7 +316,7 @@
     .time-box h2 {
       margin: 0;
       font-size: 3.5rem;
-      color: var(--gold);
+      color: var(--neon-blue);
       font-weight: 700;
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     }
@@ -319,12 +342,12 @@
       align-items: center;
       gap: 10px;
       padding: 18px 40px;
-      background: linear-gradient(90deg, var(--gold), #ffb300);
-      color: var(--primary);
+      background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+      color: white;
       font-weight: 700;
       border-radius: 50px;
       text-decoration: none;
-      box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+      box-shadow: 0 8px 25px rgba(0, 243, 255, 0.3);
       transition: all 0.4s ease;
       position: relative;
       overflow: hidden;
@@ -344,7 +367,7 @@
 
     .btn:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(255, 215, 0, 0.5);
+      box-shadow: 0 15px 35px rgba(0, 243, 255, 0.5);
     }
 
     .btn:hover::before {
@@ -382,6 +405,13 @@
       transition: all 0.4s ease;
       flex: 1;
       max-width: 250px;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    .highlight-card.animate {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .highlight-card:hover {
@@ -393,7 +423,7 @@
     .highlight-icon {
       width: 70px;
       height: 70px;
-      background: linear-gradient(135deg, var(--accent), var(--secondary));
+      background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -401,12 +431,30 @@
       margin: 0 auto 20px;
       font-size: 1.8rem;
       color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .highlight-icon::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .highlight-card:hover .highlight-icon::before {
+      opacity: 1;
     }
 
     .highlight-card h3 {
       font-size: 1.3rem;
       margin-bottom: 15px;
-      color: var(--gold);
+      color: var(--neon-blue);
     }
 
     .highlight-card p {
@@ -431,14 +479,14 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), rgba(0, 120, 255, 0.05));
+      background: linear-gradient(135deg, rgba(0, 243, 255, 0.05), rgba(157, 78, 221, 0.05));
       z-index: -1;
     }
 
     .motto-section h2 {
       font-size: 2.5rem;
       margin-bottom: 40px;
-      color: var(--gold);
+      color: var(--neon-blue);
       font-weight: 700;
     }
 
@@ -462,6 +510,13 @@
       max-width: 300px;
       position: relative;
       overflow: hidden;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    .motto-card.animate {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .motto-card::before {
@@ -474,15 +529,15 @@
     }
 
     .motto-card:nth-child(1)::before {
-      background: linear-gradient(90deg, #ff9e7d, #ff6b4a);
+      background: linear-gradient(90deg, var(--neon-blue), #00a8ff);
     }
 
     .motto-card:nth-child(2)::before {
-      background: linear-gradient(90deg, #7dcfff, #4a9cff);
+      background: linear-gradient(90deg, var(--highlight), #3a9e8c);
     }
 
     .motto-card:nth-child(3)::before {
-      background: linear-gradient(90deg, #adff7d, #7dff4a);
+      background: linear-gradient(90deg, var(--neon-purple), #7b2cbf);
     }
 
     .motto-card:hover {
@@ -496,15 +551,15 @@
     }
 
     .motto-card:nth-child(1) .motto-card-icon {
-      color: #ff9e7d;
+      color: var(--neon-blue);
     }
 
     .motto-card:nth-child(2) .motto-card-icon {
-      color: #7dcfff;
+      color: var(--highlight);
     }
 
     .motto-card:nth-child(3) .motto-card-icon {
-      color: #adff7d;
+      color: var(--neon-purple);
     }
 
     .motto-card h3 {
@@ -514,15 +569,15 @@
     }
 
     .motto-card:nth-child(1) h3 {
-      color: #ff9e7d;
+      color: var(--neon-blue);
     }
 
     .motto-card:nth-child(2) h3 {
-      color: #7dcfff;
+      color: var(--highlight);
     }
 
     .motto-card:nth-child(3) h3 {
-      color: #adff7d;
+      color: var(--neon-purple);
     }
 
     .motto-card p {
@@ -535,7 +590,7 @@
     footer {
       text-align: center;
       padding: 40px 20px;
-      background: rgba(0, 10, 30, 0.8);
+      background: rgba(5, 10, 26, 0.8);
       backdrop-filter: blur(10px);
       margin-top: 80px;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -550,7 +605,7 @@
       font-size: 1.5rem;
       font-weight: 600;
       margin-bottom: 20px;
-      color: var(--gold);
+      color: var(--neon-blue);
     }
 
     /* Animations */
@@ -653,14 +708,29 @@
       }
     }
 
+    /* Tech Grid Background */
+    .tech-grid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(rgba(0, 243, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 243, 255, 0.1) 1px, transparent 1px);
+      background-size: 50px 50px;
+      z-index: -1;
+      opacity: 0.3;
+    }
+
     /* Responsive Styles */
     @media (max-width: 1024px) {
       .hero h1 {
-        font-size: 3.5rem;
+        font-size: 4.5rem;
       }
       
       .motto {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         gap: 20px;
       }
       
@@ -685,15 +755,15 @@
       }
       
       .hero h1 {
-        font-size: 2.8rem;
-      }
-      
-      .hero h1 .apostrophe {
         font-size: 3.5rem;
       }
       
+      .hero h1 .apostrophe {
+        font-size: 4rem;
+      }
+      
       .motto {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         flex-direction: column;
         gap: 15px;
         align-items: center;
@@ -704,7 +774,7 @@
       }
       
       .hero p {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
       }
       
       .countdown {
@@ -739,15 +809,15 @@
 
     @media (max-width: 480px) {
       .hero h1 {
-        font-size: 2.2rem;
-      }
-      
-      .hero h1 .apostrophe {
         font-size: 2.8rem;
       }
       
+      .hero h1 .apostrophe {
+        font-size: 3.2rem;
+      }
+      
       .motto {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
       }
       
       .time-box {
@@ -769,6 +839,9 @@
   <!-- Particle Background -->
   <div id="particles-js"></div>
   
+  <!-- Tech Grid Background -->
+  <div class="tech-grid"></div>
+  
   <!-- Floating Elements -->
   <div class="floating-elements">
     <div class="floating-element"></div>
@@ -779,7 +852,7 @@
   <header>
     <div class="logo-container">
       <div class="logo-icon">
-        <i class="fas fa-shield-alt"></i>
+        <i class="fas fa-graduation-cap"></i>
       </div>
       <div class="logo-text">
         <h1>HIGHSEC</h1>
@@ -799,17 +872,17 @@
 
   <section class="hero">
     <div class="hero-content">
-      <h1><span class="apostrophe">'</span>Let's HIGHSEC</h1>
+      <h1><span class="apostrophe">'</span>HIGHSEC</h1>
       
       <div class="motto-container">
         <div class="motto">
-          <div class="motto-word">Enlighten</div>
-          <div class="motto-word">Engage</div>
-          <div class="motto-word">Elevate</div>
+          <div class="motto-word">Learning</div>
+          <div class="motto-word">Reflection</div>
+          <div class="motto-word">Dedication</div>
         </div>
       </div>
       
-      <p>Empowering the Next Generation of Innovators, Leaders & Visionaries</p>
+      <p>Guiding Students Towards the Right Path Through Islamic Principles</p>
 
       <!-- Countdown -->
       <div class="countdown-container">
@@ -835,24 +908,24 @@
     <div class="motto-cards">
       <div class="motto-card">
         <div class="motto-card-icon">
-          <i class="fas fa-lightbulb"></i>
+          <i class="fas fa-book-open"></i>
         </div>
-        <h3>Enlighten</h3>
-        <p>Ignite curiosity and expand knowledge through inspiring talks, workshops, and thought-provoking discussions that challenge conventional thinking.</p>
+        <h3>Learning</h3>
+        <p>Acquiring knowledge and wisdom through Islamic teachings, academic excellence, and personal development to navigate life's challenges.</p>
       </div>
       <div class="motto-card">
         <div class="motto-card-icon">
-          <i class="fas fa-handshake"></i>
+          <i class="fas fa-brain"></i>
         </div>
-        <h3>Engage</h3>
-        <p>Foster meaningful connections, collaborative projects, and interactive sessions that bring together diverse minds and perspectives.</p>
+        <h3>Reflection</h3>
+        <p>Contemplating our purpose, actions, and relationship with Allah to develop spiritual awareness and moral consciousness.</p>
       </div>
       <div class="motto-card">
         <div class="motto-card-icon">
-          <i class="fas fa-mountain"></i>
+          <i class="fas fa-hands-praying"></i>
         </div>
-        <h3>Elevate</h3>
-        <p>Empower personal and professional growth, elevating skills, ambitions, and potential to new heights of achievement and impact.</p>
+        <h3>Dedication</h3>
+        <p>Committing to righteous deeds, serving the community, and striving for excellence in all aspects of life as practicing Muslims.</p>
       </div>
     </div>
   </section>
@@ -863,35 +936,35 @@
       <div class="highlight-icon">
         <i class="fas fa-microphone"></i>
       </div>
-      <h3>Keynote Speakers</h3>
-      <p>Industry leaders sharing insights and experiences</p>
+      <h3>Islamic Scholars</h3>
+      <p>Renowned scholars sharing Islamic wisdom and guidance</p>
     </div>
     <div class="highlight-card">
       <div class="highlight-icon">
         <i class="fas fa-users"></i>
       </div>
-      <h3>Networking</h3>
-      <p>Connect with peers and professionals</p>
+      <h3>Brotherhood</h3>
+      <p>Building strong bonds with fellow Muslim students</p>
     </div>
     <div class="highlight-card">
       <div class="highlight-icon">
         <i class="fas fa-lightbulb"></i>
       </div>
-      <h3>Innovation</h3>
-      <p>Showcase your projects and ideas</p>
+      <h3>Guidance</h3>
+      <p>Finding direction through Islamic principles</p>
     </div>
     <div class="highlight-card">
       <div class="highlight-icon">
-        <i class="fas fa-trophy"></i>
+        <i class="fas fa-mosque"></i>
       </div>
-      <h3>Competitions</h3>
-      <p>Participate in exciting challenges</p>
+      <h3>Spirituality</h3>
+      <p>Strengthening faith and connection with Allah</p>
     </div>
   </div>
 
   <footer>
-    <div class="footer-motto">Enlighten • Engage • Elevate</div>
-    <p>© 2025 HIGHSEC Student Conference | Empowering Future Leaders</p>
+    <div class="footer-motto">Learning • Reflection • Dedication</div>
+    <p>© 2025 HIGHSEC Student Conference | Conducted By MSM VENGARA ZONE | Venue: Freddo Vengara</p>
   </footer>
 
   <!-- Particle.js Library -->
@@ -901,15 +974,15 @@
     // Initialize particles.js
     particlesJS("particles-js", {
       particles: {
-        number: { value: 80, density: { enable: true, value_area: 800 } },
-        color: { value: "#ffffff" },
+        number: { value: 100, density: { enable: true, value_area: 800 } },
+        color: { value: "#00f3ff" },
         shape: { type: "circle" },
         opacity: { value: 0.3, random: true },
         size: { value: 3, random: true },
         line_linked: {
           enable: true,
           distance: 150,
-          color: "#ffffff",
+          color: "#00f3ff",
           opacity: 0.2,
           width: 1
         },
@@ -956,11 +1029,39 @@
       document.getElementById("seconds").innerText = s;
 
       if (gap < 0) {
-        document.getElementById("countdown").innerHTML = "<h2 style='color: var(--gold); font-size: 2.5rem;'>The event has started!</h2>";
+        document.getElementById("countdown").innerHTML = "<h2 style='color: var(--neon-blue); font-size: 2.5rem;'>The event has started!</h2>";
       }
     };
 
     setInterval(countdown, 1000);
+
+    // Scroll Animation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, observerOptions);
+
+    // Observe elements for animation
+    document.querySelectorAll('.highlight-card, .motto-card').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Add initial animation delay to cards
+    document.querySelectorAll('.highlight-card').forEach((card, index) => {
+      card.style.transitionDelay = `${index * 0.1}s`;
+    });
+
+    document.querySelectorAll('.motto-card').forEach((card, index) => {
+      card.style.transitionDelay = `${index * 0.1}s`;
+    });
   </script>
 </body>
 </html>

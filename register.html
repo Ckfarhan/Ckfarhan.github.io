@@ -99,7 +99,6 @@
       <input type="tel" name="phone" placeholder="Phone Number" required />
       <input type="tel" name="whatsapp" placeholder="WhatsApp Number" required />
       <textarea name="address" placeholder="Address" rows="3" required></textarea>
-      <input type="text" name="zone" placeholder="Zone" required />
       <input type="text" name="unit" placeholder="Unit" required />
       <input type="text" name="class" placeholder="Class" required />
       <input type="text" name="school" placeholder="School Name" required />
@@ -108,11 +107,41 @@
   </div>
 
   <script>
-    document.getElementById('registrationForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      alert('🎉 Thank you for registering! Your details have been submitted successfully.');
-      this.reset();
-    });
-  </script>
+  const scriptURL = "https://script.google.com/macros/s/AKfycbw99akvrPWlzvm7-wr81yWN8eBtCmQBHF_95YJ7LYn0NomF6kkd46fTeq_bw0vvwFTxlw/exec";
+
+  document.getElementById('registrationForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = {
+      name: form.name.value,
+      age: form.age.value,
+      sex: form.sex.value,
+      phone: form.phone.value,
+      whatsapp: form.whatsapp.value,
+      address: form.address.value,
+      zone: form.zone.value,
+      unit: form.unit.value,
+      class: form.class.value,
+      school: form.school.value
+    };
+
+    try {
+      const response = await fetch(scriptURL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      alert('✅ Registration submitted successfully!');
+      form.reset();
+    } catch (error) {
+      alert('❌ Error submitting form. Please try again.');
+      console.error('Error:', error);
+    }
+  });
+</script>
+
 </body>
 </html>
+

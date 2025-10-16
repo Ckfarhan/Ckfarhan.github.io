@@ -1,39 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register | Student Conference 2025</title>
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Conference Registration</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .registration-container {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 20px;
+      width: 400px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      animation: fadeInUp 1.2s ease;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      letter-spacing: 1px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, select, textarea {
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      font-size: 0.95rem;
+      background: rgba(255, 255, 255, 0.8);
+      transition: all 0.3s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      background: #fff;
+      box-shadow: 0 0 10px rgba(37, 117, 252, 0.6);
+    }
+
+    button {
+      background: linear-gradient(135deg, #43e97b, #38f9d7);
+      color: #000;
+      font-weight: bold;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="register.html" class="active">Register</a>
-    </nav>
-  </header>
-
-  <main>
+  <div class="registration-container">
     <h1>Conference Registration</h1>
-    <p>Fill out the form below to join the Student Conference 2025.</p>
-
-    <form action="https://forms.gle/your-google-form-link" target="_blank">
-      <label>Full Name</label>
-      <input type="text" required>
-
-      <label>Email</label>
-      <input type="email" required>
-
-      <label>Institution</label>
-      <input type="text" required>
-
-      <button type="submit">Submit</button>
+    <form id="registrationForm">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="number" name="age" placeholder="Age" required />
+      <select name="sex" required>
+        <option value="" disabled selected>Sex</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+      <input type="tel" name="phone" placeholder="Phone Number" required />
+      <input type="tel" name="whatsapp" placeholder="WhatsApp Number" required />
+      <textarea name="address" placeholder="Address" rows="3" required></textarea>
+      <input type="text" name="zone" placeholder="Zone" required />
+      <input type="text" name="unit" placeholder="Unit" required />
+      <input type="text" name="class" placeholder="Class" required />
+      <input type="text" name="school" placeholder="School Name" required />
+      <button type="submit">Register Now</button>
     </form>
-  </main>
+  </div>
 
-  <footer>
-    <p>© 2025 Student Conference | Organized by XYZ University</p>
-  </footer>
+  <script>
+    document.getElementById('registrationForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('🎉 Thank you for registering! Your details have been submitted successfully.');
+      this.reset();
+    });
+  </script>
 </body>
 </html>

@@ -142,6 +142,44 @@
       width: 100%;
     }
 
+    /* Mobile Menu */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: rgba(5, 10, 26, 0.95);
+      backdrop-filter: blur(15px);
+      padding: 1rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-nav.active {
+      display: flex;
+    }
+
+    .mobile-nav a {
+      padding: 1rem 2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .mobile-nav a:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--neon-blue);
+    }
+
     /* Hero Section */
     .hero {
       text-align: center;
@@ -688,6 +726,16 @@
     }
 
     /* Responsive Styles */
+    @media (max-width: 1200px) {
+      .hero h1 {
+        font-size: 5rem;
+      }
+      
+      .motto-cards {
+        gap: 30px;
+      }
+    }
+
     @media (max-width: 1024px) {
       .lets {
         font-size: 3rem;
@@ -710,6 +758,10 @@
         grid-template-columns: 1fr;
         gap: 20px;
       }
+      
+      .motto-card {
+        max-width: 45%;
+      }
     }
 
     @media (max-width: 768px) {
@@ -730,7 +782,11 @@
       }
       
       nav {
-        gap: 15px;
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
       }
       
       .hero {
@@ -796,6 +852,10 @@
       .motto-section h2 {
         font-size: 2rem;
       }
+      
+      .motto-card {
+        max-width: 100%;
+      }
     }
 
     @media (max-width: 480px) {
@@ -822,6 +882,47 @@
       
       .motto-card {
         padding: 30px 20px;
+      }
+      
+      .event-detail-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+      }
+      
+      .event-detail h3 {
+        font-size: 1.2rem;
+      }
+      
+      .event-detail p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .lets {
+        font-size: 1.8rem;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .motto {
+        font-size: 1rem;
+      }
+      
+      .time-box {
+        width: 80px;
+        padding: 15px 8px;
+      }
+      
+      .time-box h2 {
+        font-size: 1.8rem;
+      }
+      
+      .time-box span {
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -850,7 +951,21 @@
       </div>
     </div>
     
-    <nav>
+    <nav class="desktop-nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="events.html">Events</a>
+      <a href="speakers.html">Speakers</a>
+      <a href="register.html">Register</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+      <i class="fas fa-bars"></i>
+    </button>
+    
+    <nav class="mobile-nav" id="mobileNav">
       <a href="index.html" class="active">Home</a>
       <a href="about.html">About</a>
       <a href="events.html">Events</a>
@@ -1016,6 +1131,25 @@
     };
 
     setInterval(countdown, 1000);
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('active');
+      mobileMenuBtn.innerHTML = mobileNav.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mobileNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+        mobileNav.classList.remove('active');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      }
+    });
 
     // Scroll Animation
     const observerOptions = {

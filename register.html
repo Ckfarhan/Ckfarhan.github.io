@@ -1,147 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Student Conference Registration</title>
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      overflow: hidden;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Student Conference Registration</title>
+<!-- Google Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
-    .registration-container {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      padding: 40px;
-      border-radius: 20px;
-      width: 400px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-      animation: fadeInUp 1.2s ease;
-    }
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    overflow-x: hidden;
+  }
 
-    h1 {
-      text-align: center;
-      font-size: 1.8rem;
-      margin-bottom: 25px;
-      letter-spacing: 1px;
-    }
+  .registration-container {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border-radius: 25px;
+    padding: 50px 35px;
+    width: 450px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    animation: fadeInUp 1.2s ease;
+  }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #fff;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
 
-    input, select, textarea {
-      padding: 12px;
-      border: none;
-      border-radius: 10px;
-      outline: none;
-      font-size: 0.95rem;
-      background: rgba(255, 255, 255, 0.8);
-      transition: all 0.3s ease;
-    }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
 
-    input:focus, select:focus, textarea:focus {
-      background: #fff;
-      box-shadow: 0 0 10px rgba(37, 117, 252, 0.6);
-    }
+  .input-group {
+    position: relative;
+  }
 
-    button {
-      background: linear-gradient(135deg, #43e97b, #38f9d7);
-      color: #000;
-      font-weight: bold;
-      padding: 12px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.3s ease;
-    }
+  input, select, textarea {
+    width: 100%;
+    padding: 12px 45px 12px 15px;
+    border-radius: 12px;
+    border: none;
+    font-size: 0.95rem;
+    outline: none;
+    background: rgba(255,255,255,0.85);
+    transition: all 0.3s ease;
+  }
 
-    button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    }
+  input:focus, select:focus, textarea:focus {
+    background: #fff;
+    box-shadow: 0 0 10px rgba(37, 117, 252, 0.6);
+  }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+  .input-group i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #555;
+  }
+
+  select {
+    cursor: pointer;
+  }
+
+  button {
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
+    color: #000;
+    font-weight: 700;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  }
+
+  button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
     }
-  </style>
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
 </head>
 <body>
-  <div class="registration-container">
-    <h1>Conference Registration</h1>
-    <form id="registrationForm">
+
+<div class="registration-container">
+  <h1>Conference Registration</h1>
+  <form id="registrationForm">
+
+    <div class="input-group">
       <input type="text" name="name" placeholder="Full Name" required />
+      <i class="fa fa-user"></i>
+    </div>
+
+    <div class="input-group">
       <input type="number" name="age" placeholder="Age" required />
+      <i class="fa fa-calendar"></i>
+    </div>
+
+    <div class="input-group">
       <select name="sex" required>
         <option value="" disabled selected>Sex</option>
         <option>Male</option>
         <option>Female</option>
         <option>Other</option>
       </select>
+      <i class="fa fa-venus-mars"></i>
+    </div>
+
+    <div class="input-group">
       <input type="tel" name="phone" placeholder="Phone Number" required />
+      <i class="fa fa-phone"></i>
+    </div>
+
+    <div class="input-group">
       <input type="tel" name="whatsapp" placeholder="WhatsApp Number" required />
+      <i class="fa fa-whatsapp"></i>
+    </div>
+
+    <div class="input-group">
       <textarea name="address" placeholder="Address" rows="3" required></textarea>
-      <input type="text" name="unit" placeholder="Unit" required />
-      <input type="text" name="class" placeholder="Class" required />
+      <i class="fa fa-map-marker-alt"></i>
+    </div>
+
+    <div class="input-group">
+      <select name="unit" required>
+        <option value="" disabled selected>Unit</option>
+        <option>Vengara</option>
+        <option>Kuruka</option>
+        <option>Muthalamadu</option>
+        <option>Kuttoor</option>
+        <option>Achanambalam</option>
+        <option>Kunnumpuram</option>
+        <option>Cherur</option>
+        <option>Puthanangadi</option>
+        <option>Poocholamadu</option>
+        <option>Kuruka</option>
+      </select>
+      <i class="fa fa-building"></i>
+    </div>
+
+    <div class="input-group">
+      <select name="class" required>
+        <option value="" disabled selected>Class</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>+1</option>
+        <option>+2</option>
+        <option>Other</option>
+      </select>
+      <i class="fa fa-graduation-cap"></i>
+    </div>
+
+    <div class="input-group">
       <input type="text" name="school" placeholder="School Name" required />
-      <button type="submit">Register Now</button>
-    </form>
-  </div>
+      <i class="fa fa-school"></i>
+    </div>
 
-  <script>
-  const scriptURL = "https://script.google.com/macros/s/AKfycbw99akvrPWlzvm7-wr81yWN8eBtCmQBHF_95YJ7LYn0NomF6kkd46fTeq_bw0vvwFTxlw/exec";
+    <button type="submit">Register Now</button>
 
-  document.getElementById('registrationForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
+  </form>
+</div>
 
-    const form = e.target;
-    const formData = {
-      name: form.name.value,
-      age: form.age.value,
-      sex: form.sex.value,
-      phone: form.phone.value,
-      whatsapp: form.whatsapp.value,
-      address: form.address.value,
-      zone: form.zone.value,
-      unit: form.unit.value,
-      class: form.class.value,
-      school: form.school.value
-    };
+<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbw99akvrPWlzvm7-wr81yWN8eBtCmQBHF_95YJ7LYn0NomF6kkd46fTeq_bw0vvwFTxlw/exec";
 
-    try {
-      const response = await fetch(scriptURL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
-      alert('✅ Registration submitted successfully!');
-      form.reset();
-    } catch (error) {
-      alert('❌ Error submitting form. Please try again.');
-      console.error('Error:', error);
-    }
-  });
+document.getElementById('registrationForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const form = e.target;
+  const formData = {
+    name: form.name.value,
+    age: form.age.value,
+    sex: form.sex.value,
+    phone: form.phone.value,
+    whatsapp: form.whatsapp.value,
+    address: form.address.value,
+    unit: form.unit.value,
+    class: form.class.value,
+    school: form.school.value
+  };
+
+  try {
+    await fetch(scriptURL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+    alert('✅ Registration submitted successfully!');
+    form.reset();
+  } catch (error) {
+    alert('❌ Error submitting form. Please try again.');
+    console.error('Error:', error);
+  }
+});
 </script>
 
 </body>
 </html>
-

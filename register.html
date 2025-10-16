@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - School Event</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">School Event 2024</h1>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="events.html" class="nav-link">Events</a></li>
+                <li><a href="register.html" class="nav-link active">Register</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="page-header">
+            <h1>Event Registration</h1>
+            <p>Sign up to participate in our exciting events</p>
+        </header>
+
+        <section class="registration-form">
+            <form class="form" id="registrationForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="grade">Grade *</label>
+                    <select id="grade" name="grade" required>
+                        <option value="">Select Grade</option>
+                        <option value="1">Grade 1</option>
+                        <option value="2">Grade 2</option>
+                        <option value="3">Grade 3</option>
+                        <option value="4">Grade 4</option>
+                        <option value="5">Grade 5</option>
+                        <option value="6">Grade 6</option>
+                        <option value="7">Grade 7</option>
+                        <option value="8">Grade 8</option>
+                        <option value="9">Grade 9</option>
+                        <option value="10">Grade 10</option>
+                        <option value="11">Grade 11</option>
+                        <option value="12">Grade 12</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+
+                <div class="form-group">
+                    <label>Events Interested In *</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="events" value="science"> Science Fair
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="events" value="art"> Art Competition
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="events" value="sports"> Sports Tournament
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="events" value="quiz"> Quiz Competition
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="events" value="dance"> Dance Performance
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="comments">Additional Comments</label>
+                    <textarea id="comments" name="comments" rows="4"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Register Now</button>
+            </form>
+        </section>
+
+        <section class="registration-info">
+            <h2>Registration Information</h2>
+            <div class="info-cards">
+                <div class="info-card">
+                    <h3>📅 Deadline</h3>
+                    <p>Register before December 10, 2024</p>
+                </div>
+                <div class="info-card">
+                    <h3>💰 Fees</h3>
+                    <p>No registration fees required</p>
+                </div>
+                <div class="info-card">
+                    <h3>📞 Contact</h3>
+                    <p>Email: event@school.edu<br>Phone: (555) 123-4567</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 School Event. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for registering! We will contact you soon with more details.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

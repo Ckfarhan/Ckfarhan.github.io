@@ -171,6 +171,66 @@
       animation: pulse 2s infinite;
     }
 
+    .motto-container {
+      margin: 30px 0 40px;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .motto {
+      font-size: 2.2rem;
+      font-weight: 700;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .motto-word {
+      position: relative;
+      padding: 10px 25px;
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.4s ease;
+      cursor: default;
+    }
+
+    .motto-word:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .motto-word:nth-child(1) {
+      color: #ff9e7d;
+    }
+
+    .motto-word:nth-child(2) {
+      color: #7dcfff;
+    }
+
+    .motto-word:nth-child(3) {
+      color: #adff7d;
+    }
+
+    .motto-word::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .motto-word:hover::before {
+      opacity: 1;
+    }
+
     .hero p {
       font-size: 1.5rem;
       color: #e0e0e0;
@@ -178,7 +238,7 @@
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
-      animation: fadeInUp 1.5s ease;
+      animation: fadeInUp 1.7s ease;
     }
 
     /* Countdown Timer */
@@ -354,6 +414,123 @@
       color: #e0e0e0;
     }
 
+    /* Motto Section */
+    .motto-section {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 80px 20px;
+      text-align: center;
+      margin: 60px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .motto-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), rgba(0, 120, 255, 0.05));
+      z-index: -1;
+    }
+
+    .motto-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .motto-cards {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .motto-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.4s ease;
+      flex: 1;
+      max-width: 300px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .motto-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+    }
+
+    .motto-card:nth-child(1)::before {
+      background: linear-gradient(90deg, #ff9e7d, #ff6b4a);
+    }
+
+    .motto-card:nth-child(2)::before {
+      background: linear-gradient(90deg, #7dcfff, #4a9cff);
+    }
+
+    .motto-card:nth-child(3)::before {
+      background: linear-gradient(90deg, #adff7d, #7dff4a);
+    }
+
+    .motto-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .motto-card-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .motto-card:nth-child(1) .motto-card-icon {
+      color: #ff9e7d;
+    }
+
+    .motto-card:nth-child(2) .motto-card-icon {
+      color: #7dcfff;
+    }
+
+    .motto-card:nth-child(3) .motto-card-icon {
+      color: #adff7d;
+    }
+
+    .motto-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .motto-card:nth-child(1) h3 {
+      color: #ff9e7d;
+    }
+
+    .motto-card:nth-child(2) h3 {
+      color: #7dcfff;
+    }
+
+    .motto-card:nth-child(3) h3 {
+      color: #adff7d;
+    }
+
+    .motto-card p {
+      font-size: 1rem;
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+
     /* Footer */
     footer {
       text-align: center;
@@ -367,6 +544,13 @@
     footer p {
       font-size: 1rem;
       color: #e0e0e0;
+    }
+
+    .footer-motto {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--gold);
     }
 
     /* Animations */
@@ -475,7 +659,12 @@
         font-size: 3.5rem;
       }
       
-      .highlights {
+      .motto {
+        font-size: 1.8rem;
+        gap: 20px;
+      }
+      
+      .highlights, .motto-cards {
         flex-wrap: wrap;
       }
     }
@@ -501,6 +690,17 @@
       
       .hero h1 .apostrophe {
         font-size: 3.5rem;
+      }
+      
+      .motto {
+        font-size: 1.5rem;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+      }
+      
+      .motto-word {
+        width: 200px;
       }
       
       .hero p {
@@ -531,6 +731,10 @@
         max-width: 300px;
         justify-content: center;
       }
+      
+      .motto-section h2 {
+        font-size: 2rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -542,6 +746,10 @@
         font-size: 2.8rem;
       }
       
+      .motto {
+        font-size: 1.3rem;
+      }
+      
       .time-box {
         width: 100px;
         padding: 20px 10px;
@@ -549,6 +757,10 @@
       
       .time-box h2 {
         font-size: 2.2rem;
+      }
+      
+      .motto-card {
+        padding: 30px 20px;
       }
     }
   </style>
@@ -588,6 +800,15 @@
   <section class="hero">
     <div class="hero-content">
       <h1><span class="apostrophe">'</span>Let's HIGHSEC</h1>
+      
+      <div class="motto-container">
+        <div class="motto">
+          <div class="motto-word">Enlighten</div>
+          <div class="motto-word">Engage</div>
+          <div class="motto-word">Elevate</div>
+        </div>
+      </div>
+      
       <p>Empowering the Next Generation of Innovators, Leaders & Visionaries</p>
 
       <!-- Countdown -->
@@ -604,6 +825,34 @@
       <div class="btn-container">
         <a href="register.html" class="btn"><i class="fas fa-ticket-alt"></i> Register Now</a>
         <a href="events.html" class="btn btn-secondary"><i class="fas fa-calendar-alt"></i> View Schedule</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Motto Section -->
+  <section class="motto-section">
+    <h2>Our Guiding Principles</h2>
+    <div class="motto-cards">
+      <div class="motto-card">
+        <div class="motto-card-icon">
+          <i class="fas fa-lightbulb"></i>
+        </div>
+        <h3>Enlighten</h3>
+        <p>Ignite curiosity and expand knowledge through inspiring talks, workshops, and thought-provoking discussions that challenge conventional thinking.</p>
+      </div>
+      <div class="motto-card">
+        <div class="motto-card-icon">
+          <i class="fas fa-handshake"></i>
+        </div>
+        <h3>Engage</h3>
+        <p>Foster meaningful connections, collaborative projects, and interactive sessions that bring together diverse minds and perspectives.</p>
+      </div>
+      <div class="motto-card">
+        <div class="motto-card-icon">
+          <i class="fas fa-mountain"></i>
+        </div>
+        <h3>Elevate</h3>
+        <p>Empower personal and professional growth, elevating skills, ambitions, and potential to new heights of achievement and impact.</p>
       </div>
     </div>
   </section>
@@ -641,6 +890,7 @@
   </div>
 
   <footer>
+    <div class="footer-motto">Enlighten • Engage • Elevate</div>
     <p>© 2025 HIGHSEC Student Conference | Empowering Future Leaders</p>
   </footer>
 

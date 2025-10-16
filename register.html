@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Student Conference Registration</title>
+    <title>HIGHSEC Students Conference 2025</title>
     <!-- Google Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary: #4361ee;
-            --secondary: #3a0ca3;
-            --accent: #4cc9f0;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --success: #4bb543;
+            --primary: #2a4d8e;
+            --secondary: #1a365d;
+            --accent: #4a7bd9;
+            --light: #f0f4f8;
+            --dark: #1e293b;
+            --success: #10b981;
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
         
@@ -26,7 +26,7 @@
         
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: var(--dark);
             line-height: 1.6;
             min-height: 100vh;
@@ -38,8 +38,7 @@
         }
         
         .container {
-            display: flex;
-            max-width: 1200px;
+            max-width: 1000px;
             width: 100%;
             background: white;
             border-radius: 20px;
@@ -48,36 +47,33 @@
             animation: fadeIn 0.8s ease;
         }
         
-        .left-panel {
-            flex: 1;
+        .header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            padding: 30px 40px;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
         
-        .left-panel::before {
+        .header::before {
             content: '';
             position: absolute;
             top: -50px;
             right: -50px;
-            width: 200px;
-            height: 200px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.1);
         }
         
-        .left-panel::after {
+        .header::after {
             content: '';
             position: absolute;
             bottom: -80px;
             left: -80px;
-            width: 250px;
-            height: 250px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.1);
         }
@@ -85,54 +81,54 @@
         .logo {
             display: flex;
             align-items: center;
-            margin-bottom: 30px;
+            justify-content: center;
+            margin-bottom: 15px;
         }
         
-        .logo i {
-            font-size: 2rem;
-            margin-right: 10px;
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         
-        .logo h1 {
+        .logo-icon i {
             font-size: 1.8rem;
+            color: var(--primary);
+        }
+        
+        .logo-text {
+            text-align: left;
+        }
+        
+        .logo-text h1 {
+            font-size: 2.2rem;
             font-weight: 700;
+            line-height: 1;
+            margin-bottom: 5px;
         }
         
-        .left-panel h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-        
-        .left-panel p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
+        .logo-text p {
+            font-size: 1rem;
             opacity: 0.9;
         }
         
-        .features {
-            list-style: none;
-            margin-top: 30px;
-        }
-        
-        .features li {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .features i {
-            margin-right: 10px;
-            color: var(--accent);
+        .event-date {
             font-size: 1.2rem;
+            margin-top: 10px;
+            font-weight: 500;
+            opacity: 0.9;
         }
         
-        .right-panel {
-            flex: 1;
-            padding: 50px;
+        .content {
+            padding: 40px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
         }
         
         .form-header {
@@ -141,7 +137,7 @@
         }
         
         .form-header h2 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: var(--primary);
             margin-bottom: 10px;
         }
@@ -174,13 +170,14 @@
             font-size: 1rem;
             transition: all 0.3s ease;
             background-color: #f8f9fa;
+            font-family: 'Poppins', sans-serif;
         }
         
         input:focus, select:focus, textarea:focus {
             outline: none;
             border-color: var(--primary);
             background-color: white;
-            box-shadow: 0 0 0 4px rgba(67, 97, 238, 0.1);
+            box-shadow: 0 0 0 4px rgba(42, 77, 142, 0.1);
         }
         
         .input-group i {
@@ -192,6 +189,11 @@
             transition: color 0.3s ease;
         }
         
+        textarea + i {
+            top: 20px;
+            transform: none;
+        }
+        
         input:focus + i, select:focus + i, textarea:focus + i {
             color: var(--primary);
         }
@@ -200,13 +202,13 @@
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             font-weight: 600;
-            padding: 15px;
+            padding: 16px;
             border: none;
             border-radius: 10px;
             cursor: pointer;
             font-size: 1.1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+            box-shadow: 0 4px 15px rgba(42, 77, 142, 0.3);
             margin-top: 10px;
             display: flex;
             align-items: center;
@@ -216,24 +218,11 @@
         
         button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
+            box-shadow: 0 8px 25px rgba(42, 77, 142, 0.4);
         }
         
         button:active {
             transform: translateY(-1px);
-        }
-        
-        .form-footer {
-            text-align: center;
-            margin-top: 20px;
-            color: #6c757d;
-            font-size: 0.9rem;
-        }
-        
-        .form-footer a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
         }
         
         .success-message {
@@ -252,28 +241,28 @@
             to { opacity: 1; }
         }
         
-        @media (max-width: 992px) {
-            .container {
-                flex-direction: column;
-            }
-            
-            .left-panel, .right-panel {
-                padding: 40px 30px;
-            }
-        }
-        
-        @media (max-width: 576px) {
+        @media (max-width: 768px) {
             .form-row {
                 flex-direction: column;
                 gap: 20px;
             }
             
-            .left-panel, .right-panel {
+            .header, .content {
                 padding: 30px 20px;
             }
             
-            .left-panel h2 {
-                font-size: 2rem;
+            .logo {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .logo-text {
+                text-align: center;
             }
         }
     </style>
@@ -281,26 +270,23 @@
 <body>
 
 <div class="container">
-    <div class="left-panel">
+    <div class="header">
         <div class="logo">
-            <i class="fas fa-graduation-cap"></i>
-            <h1>EduConnect</h1>
+            <div class="logo-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <div class="logo-text">
+                <h1>HIGHSEC</h1>
+                <p>Students Conference 2025</p>
+            </div>
         </div>
-        <h2>Join the Premier Student Conference of 2024</h2>
-        <p>Connect with industry leaders, learn from experts, and network with peers from across the region.</p>
-        
-        <ul class="features">
-            <li><i class="fas fa-check-circle"></i> Expert-led workshops</li>
-            <li><i class="fas fa-check-circle"></i> Networking opportunities</li>
-            <li><i class="fas fa-check-circle"></i> Career guidance sessions</li>
-            <li><i class="fas fa-check-circle"></i> Certificate of participation</li>
-        </ul>
+        <div class="event-date">November 9, 2025</div>
     </div>
     
-    <div class="right-panel">
+    <div class="content">
         <div class="form-header">
-            <h2>Register Now</h2>
-            <p>Complete the form below to secure your spot</p>
+            <h2>Conference Registration</h2>
+            <p>Secure your spot at the premier student event of the year</p>
         </div>
         
         <form class="registration-form" id="registrationForm">
@@ -387,10 +373,6 @@
                 <i class="fas fa-check-circle"></i> Registration submitted successfully!
             </div>
         </form>
-        
-        <div class="form-footer">
-            <p>By registering, you agree to our <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></p>
-        </div>
     </div>
 </div>
 
@@ -450,4 +432,3 @@ document.getElementById('registrationForm').addEventListener('submit', async (e)
 
 </body>
 </html>
-

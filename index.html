@@ -453,9 +453,10 @@
       color: var(--neon-blue);
       font-weight: 700;
     }
-
+    /* fix the layout for mobiles */
     .motto-cards {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       justify-content: center;
       gap: 40px;
       max-width: 1200px;
